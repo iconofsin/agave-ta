@@ -261,6 +261,14 @@ impl SendTransactionService {
                     }
                     Err(RecvTimeoutError::Timeout) => {}
                     Ok(transaction_info) => {
+                        let sig = transaction_info.signature.to_string();
+                        // let deserialized_wt: Option<String> = bincode::deserialize(&transaction_info.wire_transaction).unwrap();
+                        info!("RECVTX Signature: {}", sig);
+                        // info!("RECVTX: Decoding: {}", match deserialized_wt {
+                        //     Some(v) => v,
+                        //     None => "---".to_owned(),
+                        // });
+
                         stats.received_transactions.fetch_add(1, Ordering::Relaxed);
                         let entry = transactions.entry(transaction_info.signature);
                         let mut new_transaction = false;

@@ -85,6 +85,9 @@ impl BanksServer {
                 .into_iter()
                 .map(|info| deserialize(&info.wire_transaction).unwrap())
                 .collect();
+
+            // log::info!("RECVTX (banks-::run) {} txs", transactions.len());
+
             loop {
                 let bank = bank_forks.read().unwrap().working_bank();
                 // bank forks lock released, now verify bank hasn't been frozen yet

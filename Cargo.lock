@@ -6368,6 +6368,7 @@ dependencies = [
  "bincode",
  "crossbeam-channel",
  "futures 0.3.31",
+ "log",
  "solana-banks-interface",
  "solana-client",
  "solana-feature-set",
@@ -9570,6 +9571,7 @@ dependencies = [
 name = "solana-send-transaction-service"
 version = "2.2.1"
 dependencies = [
+ "bincode",
  "crossbeam-channel",
  "itertools 0.12.1",
  "log",

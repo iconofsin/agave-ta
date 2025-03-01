@@ -1,0 +1,1 @@
+cargo test -p solana-client-test --test logged_txns -- --nocapture
